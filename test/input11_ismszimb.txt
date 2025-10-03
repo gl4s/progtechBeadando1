@@ -1,0 +1,5 @@
+3
+Helyes h 5
+Vandor z 4
+Siklo s 10
+nfe

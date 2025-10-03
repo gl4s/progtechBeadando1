@@ -2,10 +2,26 @@ import java.io.IOException;
 import java.util.List;
 import creatures.Leny;
 import utils.FileHandler;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args){
-        String filepath = "src/input.txt";
+        String filepath;
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Kerem adja meg a bemeneti fajl nevet (pl.: test/input.txt): ");
+            filepath = br.readLine();
+        } catch (java.io.IOException e) {
+            System.err.println("Hiba a konzolrol valo beolvasaskor: " + e.getMessage());
+            return;
+        }
+
+        if (filepath.isEmpty()) {
+            System.err.println("Nem adott meg fajlnevet");
+            return;
+        }
+
         FileHandler fh = new FileHandler();
 
         try {
@@ -31,25 +47,25 @@ public class Main {
                 }
             }
 
-            Leny gyoztes = null;
+            Leny nyertes = null;
             int maxTavolsag = -1;
 
             for (Leny leny : lenyek) {
                 if (leny.isAlive() && leny.getMegtettTavolsag() > maxTavolsag) {
                     maxTavolsag = leny.getMegtettTavolsag();
-                    gyoztes = leny;
+                    nyertes = leny;
                 }
             }
 
             // Eredmeny
-            if (gyoztes != null) {
-                System.out.println("A győztes: " + gyoztes.getNev());
+            if (nyertes != null) {
+                System.out.println("A gyoztes: " + nyertes.getNev());
             } else {
-                System.out.println("Nincs győztes. Minden lény elpusztult.");
+                System.out.println("Nincs gyoztes. Minden lény elpusztult");
             }
 
         } catch (Exception e){
-            System.err.println("hiba történt: " + e.getMessage());
+            System.err.println("hiba tortent: " + e.getMessage());
         }
     }
 }

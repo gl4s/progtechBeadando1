@@ -12,9 +12,6 @@ public class Szivacs extends Leny {
         if (this.eletbenVan) {
             this.vizmennyiseg-=4;
             waterCheck();
-            if (this.eletbenVan) {
-                this.megtettTavolsag+=0;
-            }
         }
     }
 

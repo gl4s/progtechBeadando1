@@ -1,0 +1,7 @@
+5
+Egyforma1 h 5
+Egyforma2 h 5
+Egyforma3 h 5
+Egyforma4 h 5
+Egyforma5 h 5
+nfe

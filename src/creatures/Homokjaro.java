@@ -22,7 +22,6 @@ public class Homokjaro extends Leny
     @Override
     public void felhosNap() {
         if (this.eletbenVan) {
-            this.vizmennyiseg+=0;
             waterCheck();
             if (this.eletbenVan) {
                 this.megtettTavolsag+=1;
